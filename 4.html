@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+
+<body>
+  <!--
+Обязательное задание.
+
+1. Необходимо вывести в консоль массив продуктов в котором есть хоть одна
+фотография используя метод filter. Исходные данные - массив products.
+2. Необходимо отсортировать массив products используя метод sort по цене,
+начиная с самой маленькой, заканчивая самой большой ценой, после чего вывести
+отсортированный массив в консоль.
+-->
+  <script>
+    "use strict";
+
+    const products = [
+      {
+        id: 3,
+        price: 127,
+        photos: [
+          "1.jpg",
+          "2.jpg",
+        ],
+      },
+      {
+        id: 5,
+        price: 499,
+        photos: [],
+      },
+      {
+        id: 10,
+        price: 26,
+        photos: [
+          "3.jpg",
+        ],
+      },
+      {
+        id: 8,
+        price: 78,
+      },
+    ];
+
+    //Просто для удобства просмотра в консоли. 
+    //Не оптимизировал с кодом выполнения заданий, намеренно
+    let arrBefore = "";
+    products.forEach(function (obj) {
+      arrBefore += `id: ${obj.id}, price: ${obj.price} `;
+      if (obj.hasOwnProperty("photos")) {
+        arrBefore += `photos qty: ${obj.photos.length}`;
+      }
+      arrBefore += "\n";
+    });
+
+    //1
+    const arrByImg = products.filter((obj) => {
+      if (obj.hasOwnProperty("photos") && obj.photos.length > 0) {
+        return true;
+      }
+    });
+    //2
+    /*Тут, честно, подсмотрел Вашу реализацию. 
+      Пришлось. Ходил вокруг, да около,
+      но лаконичного решения не мог найти. Потому что здесь объекты внутри 
+      массива.
+      В итоге сдела по-своему, поняв подход и адаптировав способ из мануала.
+    */
+    function compareNumbers(a, b) {
+      return a.price - b.price;
+    }
+
+    console.log("The PRODUCT array before filtering and sorting");
+    console.log(arrBefore);
+    console.log("After filtering");
+    console.log(arrByImg);
+    console.log("After sorting");
+    console.log(products.sort(compareNumbers));
+  </script>
+</body>
+
+</html>
