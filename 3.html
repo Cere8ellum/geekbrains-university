@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+    crossorigin="anonymous" />
+  <style>
+    i {
+      font-size: 50px;
+    }
+
+    .golden {
+      color: gold;
+    }
+  </style>
+</head>
+
+<body>
+  <!--
+Обязательное задание.
+
+Выполнить все задачи в теге script. Комментарии, в которых написаны задачи, не
+стирать, код с решением задачи пишем под комментарием.
+-->
+
+  <div class="stars_container">
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+  </div>
+
+  <script>
+    "use strict";
+
+    /*
+    1. При наведении на любую из звезд, данной звезде должен ставиться класс
+    golden, также такой класс должен ставиться всем звездам до нее слева.
+    */
+    const stars = document.querySelectorAll("i");
+
+    stars.forEach(el => {
+      el.addEventListener("mouseover", () => {
+        setRate(el);
+      })
+    })
+
+    function setRate(el) {
+      el.classList.add("golden");
+      if (el.previousElementSibling) {
+        //Рекурсия, ну Вы понимаете :)
+        setRate(el.previousElementSibling);
+      }
+    }
+
+    /*
+    2. Когда мы уводим курсор мыши от звезды, все поставленные классы из первого
+    задания должны быть удалены.
+     */
+    stars.forEach(star => {
+      star.addEventListener("mouseout", () => {
+        removeRate(stars);
+      })
+    });
+
+    function removeRate(items) {
+      items.forEach(el => {
+        el.classList.remove("golden");
+      });
+    }
+
+
+    /*
+    3. Когда мы переводим мышь от одной звезды к другой, у нас могут мигать
+    звезды (временно могут становиться черными). Почему так? Напишите словами.
+    Можем ли мы это исправить? Если да, то предложите решение.
+
+    Звёзды мигают, потому что глаз улавливает миг между (прошлым и будущим :D) 
+    присвоением и удалением стилей, соответственно видна перерисовка 
+    при перемещении курсора между испытуемыми.
+
+    А вот решения я честно не нашёл.
+    После 2-х часов активного поиска решения, я сдался и подстмотрел у Вас.
+    А решение то лежало на поверхности. Нужно было просто удалить узел.
+    Что я только не пыталмя сделать.
+    И setTimeout ставил, в надежде отсрочить удаление на 300ms.
+    И таким вот штуками манипулировал:
+    event.relatedTarget.classList.contains("stars_container")
+    Всё не то. Как-будто за забором слышу решение, оно лает, 
+    но не могу дотянуться.
+    
+    Обычно беру паузу, возвращаюсь к проблеме через некоторое время, и проблема
+    чаще всего решается. Тут что-то психанул, зная, что могу подсмотреть...
+
+    Вобщем запомнил решение. :)
+    Такое не забывается.
+    Записал в функцию, и вызываю её сразу при загрузке
+    */
+    window.addEventListener("load", () => {
+      document.querySelector('.stars_container').childNodes.forEach(node => {
+        if (node.nodeName === '#text') {
+          node.remove();
+        }
+      });
+    });
+
+
+  </script>
+</body>
+
+</html>
