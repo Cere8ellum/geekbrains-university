@@ -1,0 +1,198 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+.container {
+    width: 1140px;
+    margin: 0 auto;
+}
+
+.header {
+    background-color: #222222;
+    color: #E8E8E8;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-header-content> :nth-child(even),
+.right-header-content> :nth-child(even) {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.left-header-content, .right-header-content {
+    list-style: none;
+}
+
+.menu-item {
+    /*Здесь именно display, а не float. Для вертикального выравнивания иконок*/
+    padding: 18px 0;
+    display: inline-block;
+}
+
+.menu-item a {
+    text-decoration: none;
+    padding: 40px 0;
+    vertical-align: middle;
+}
+
+.top-menu-btn {
+    position: relative;
+}
+
+.drop-down-menu {
+    display: none;
+    background-color: #fff;
+    position: absolute;
+    top: 75px;
+    font-family: 'Lato';
+    color: #6F6E6E;
+    padding: 16px 16px 157px 33px;
+    width: 232px;
+    box-shadow: 0 0 15px rgba(63, 63, 63, 0.5)
+}
+
+.drop-down-menu img {
+    width: 12px;
+    height: 12px;
+    float: right;
+}
+
+.drop-down-menu h3 {
+    color: #000;
+    margin-top: 22px;
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 700;
+}
+
+.drop-down-menu h4 {
+    color: #F16D7F;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    margin-top: 24px;
+}
+
+.drop-down-menu li {
+    list-style: none;
+    padding: 12px 0 0 22px;
+}
+
+.drop-down-menu a {
+    color: #6F6E6E;
+    padding: 0;
+}
+
+.top-menu-btn:hover .drop-down-menu {
+    display: block;
+}
+
+.cart-wrapper {
+    position: relative;
+}
+
+.cart-wrapper span {
+    position: absolute;
+    width: 18px;
+    line-height: 18px;
+    font-size: 12px;
+    color: white;
+    background: #F16D7F;
+    border-radius: 50%;
+    text-align: center;
+    right: -8px;
+    top: -20px;
+
+
+}
+
+/************************BANNER************************/
+.banner {
+    background-color: #F1E4E6;
+}
+
+.banner-content {
+    display: flex;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.right-banner-content {
+    align-self: center;
+}
+
+.slogan {
+    border-left: 12px #F16D7F solid;
+    font-family: 'Lato';
+    font-size: 48px;
+    padding-left: 16px;
+}
+
+.slogan> :last-child {
+    color: #F16D7F;
+}
+
+/************************CATEGORIES************************/
+.categories-content {
+    padding: 65px 0 96px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.categories-item {
+    position: relative;
+}
+
+.categories-item a {
+    text-decoration: none;
+}
+
+.categories-text>:first-child {
+    color: #FFFFFF;
+    display: block;
+}
+
+.categories-text>:last-child {
+    color: #F16D7F;
+    display: block;
+}
+
+.categories-text {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 40%;
+    text-align: center;
+    font-size: 16px;
+    /*
+    Почему не работает этот комплекс, для позиционирования по-центру?
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    */
+}
+
+.categories-content> :last-child {
+    margin-top: 30px;
+}
+
+/************************FEATURED ITEMS************************/
+.feutured-items-content {
+    text-align: center;
+}
+
+.cards {
+    margin-top: 48px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
