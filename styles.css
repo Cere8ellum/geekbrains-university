@@ -38,7 +38,6 @@
 .menu-item a {
     text-decoration: none;
     padding: 40px 0;
-    vertical-align: middle;
 }
 
 .top-menu-btn {
@@ -186,13 +185,121 @@
 }
 
 /************************FEATURED ITEMS************************/
-.feutured-items-content {
+.featured-items-content {
     text-align: center;
+    font-family: 'Lato';
+}
+
+.featured-items-content>h2 {
+    padding-bottom: 6px;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 36px;
+    color: #222222;
+}
+
+.featured-items-content>span {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #9F9F9F;
 }
 
 .cards {
-    margin-top: 48px;
+    margin-top: 18px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+}
+
+.cards-item {
+    margin-top: 30px;
+    width: 360px;
+    background-color: #F8F8F8;
+    text-align: left;
+}
+
+.cards-data>h4 {
+    margin-top: 25px;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    color: #000000;
+}
+
+.cards-data>p {
+    padding-top: 12px;
+    padding-bottom: 18px;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+    color: #5D5D5D;
+}
+
+.cards-data>span {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #F16D7F;
+}
+
+.cards-img {
+    position: relative;
+}
+
+.cards-img:hover .img-hover-layer {
+    display: flex;
+}
+
+.img-hover-layer {
+    display: none;
+    background: rgba(58, 56, 56, 0.86);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    top: 0;
+}
+
+.img-hover-layer button {
+    background: none;
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    width: 138px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.img-hover-layer img {
+    width: 26px;
+    height: 24px;
+}
+
+.img-hover-layer span {
+    margin-left: 11px;
+}
+
+.all-prod-btn {
+    margin: 48px auto 0 auto;
+    width: 211px;
+    text-align: center;
+}
+
+.all-prod-btn>a {
+    display: block;
+    background-color: #F26376;
+    color: #FFFFFF;
+    height: 100%;
+    text-decoration: none;
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+
+/************************FOOTER************************/
+footer {
+    margin-top: 95px;
+    background-color: #222224;
 }
