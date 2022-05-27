@@ -440,6 +440,10 @@ footer {
 }
 
 /************************PRODUCT INFO************************/
+.breadcrumbs {
+    background-color: #F8F3F4;
+}
+
 .breadcrumbs-content {
     display: flex;
     justify-content: space-between;
@@ -612,6 +616,7 @@ footer {
 .catalog-filters {
     display: flex;
     justify-content: flex-start;
+    padding-top: 51px;
     //Чтобы получить общий отступ для cards == 65px
     margin-bottom: 17px;
 }
@@ -752,13 +757,13 @@ footer {
     justify-content: center;
 
     div {
-        padding: 12px 0;
+        padding: 12px 0 12px 15px;
         border: 1px solid #c4c4c4;
         border-radius: 5px;
 
         :nth-child(even) {
-            padding-left: 17px;
-            padding-right: 17px;
+            padding-left: 15px;
+            padding-right: 15px;
         }
 
         :first-child {
@@ -772,7 +777,6 @@ footer {
 
     i {
         color: #000000;
-        padding: 0 15px;
     }
 
     a,

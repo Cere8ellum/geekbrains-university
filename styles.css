@@ -486,6 +486,10 @@ footer {
 }
 
 /************************PRODUCT INFO************************/
+.breadcrumbs {
+  background-color: #F8F3F4;
+}
+
 .breadcrumbs-content {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -690,6 +694,7 @@ footer {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+  padding-top: 51px;
   margin-bottom: 17px;
 }
 
@@ -842,14 +847,14 @@ footer {
 }
 
 .pagination div {
-  padding: 12px 0;
+  padding: 12px 0 12px 15px;
   border: 1px solid #c4c4c4;
   border-radius: 5px;
 }
 
 .pagination div :nth-child(even) {
-  padding-left: 17px;
-  padding-right: 17px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .pagination div :first-child {
@@ -862,7 +867,6 @@ footer {
 
 .pagination i {
   color: #000000;
-  padding: 0 15px;
 }
 
 .pagination a,
