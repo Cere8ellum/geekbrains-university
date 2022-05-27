@@ -25,7 +25,8 @@
     margin-right: 40px;
 }
 
-.left-header-content, .right-header-content {
+.left-header-content,
+.right-header-content {
     list-style: none;
 }
 
@@ -87,7 +88,7 @@
         color: #6F6E6E;
         padding: 0;
     }
-    
+
 }
 
 .top-menu-btn:hover .drop-down-menu {
@@ -169,6 +170,7 @@
     margin: auto;
     */
 }
+
 .categories-text>:first-child {
     color: #FFFFFF;
     display: block;
@@ -195,6 +197,7 @@
         line-height: 36px;
         color: #222222;
     }
+
     >span {
         font-weight: 400;
         font-size: 14px;
@@ -223,6 +226,7 @@
     h4 {
         margin-top: 25px;
     }
+
     a {
         text-decoration: none;
         color: #000000;
@@ -230,6 +234,7 @@
         font-size: 13px;
         line-height: 16px;
     }
+
     p {
         padding-top: 12px;
         padding-bottom: 18px;
@@ -238,6 +243,7 @@
         line-height: 17px;
         color: #5D5D5D;
     }
+
     span {
         font-weight: 400;
         font-size: 16px;
@@ -275,10 +281,12 @@
         align-items: center;
         cursor: pointer;
     }
+
     img {
         width: 26px;
         height: 24px;
     }
+
     span {
         margin-left: 11px;
     }
@@ -321,6 +329,7 @@ footer {
         font-size: 19.96px;
         line-height: 24px;
     }
+
     p {
         margin-top: 16px;
         font-weight: 300;
@@ -358,13 +367,16 @@ footer {
     h4 {
         font-weight: 700;
     }
+
     p {
         padding-top: 10px;
     }
+
     form {
         position: relative;
         margin-top: 32px;
     }
+
     input {
         width: 100%;
         height: 50px;
@@ -378,6 +390,7 @@ footer {
         color: #222224;
         opacity: 0.67;
     }
+
     button {
         position: absolute;
         width: 100px;
@@ -408,6 +421,10 @@ footer {
 }
 
 /************************PRODUCT INFO************************/
+.product-info {
+    background-color: #F8F3F4;
+}
+
 .product-info-content {
     display: flex;
     justify-content: space-between;
@@ -421,6 +438,7 @@ footer {
         line-height: 29px;
         color: #F16D7F;
     }
+
     a {
         font-weight: 300;
         font-size: 14px;
@@ -428,6 +446,7 @@ footer {
         color: #636363;
         text-decoration: none;
     }
+
     /*Последняя ссылка*/
     a:last-child {
         color: #F16D7F;
@@ -442,7 +461,8 @@ footer {
     position: relative;
 }
 
-.product-banner-btn-left, .product-banner-btn-right {
+.product-banner-btn-left,
+.product-banner-btn-right {
     position: absolute;
     background-color: rgba(42, 42, 42, 0.15);
     width: 47px;
@@ -486,6 +506,7 @@ footer {
         line-height: 17px;
         color: #F16D7F;
     }
+
     >hr {
         width: 63px;
         height: 3px;
@@ -495,6 +516,7 @@ footer {
         margin: auto;
         margin-top: 12px;
     }
+
     >h3 {
         margin-top: 12px;
         font-weight: 300;
@@ -502,6 +524,7 @@ footer {
         line-height: 22px;
         color: #4D4D4D;
     }
+
     >p {
         margin-top: 48px;
         font-weight: 300;
@@ -510,6 +533,7 @@ footer {
         text-align: center;
         color: #5E5E5E;
     }
+
     >span {
         margin-top: 32px;
         padding-bottom: 65px;
@@ -519,6 +543,7 @@ footer {
         color: #EF5B70;
         border-bottom: 1px solid #EAEAEA;
     }
+
     >div {
         margin-top: 65px;
         font-weight: 400;
@@ -526,9 +551,11 @@ footer {
         line-height: 17px;
         color: #6F6E6E;
     }
+
     >div select {
         border: none;
     }
+
     >button {
         background: none;
         border: 1px solid #F26376;
@@ -545,6 +572,7 @@ footer {
             width: 26px;
             height: 24px;
         }
+
         span {
             margin-left: 11px;
             color: #F26376;
@@ -557,7 +585,7 @@ footer {
 
 /************************PRODUCT RANDOM************************/
 .product-random {
-    $marginFromPrev: 490;//margin до нижней границы предыдущего блока
+    $marginFromPrev: 490; //margin до нижней границы предыдущего блока
     $marginTop: $marginFromPrev + 128; //Расчёт, учитывая отступ дизайнера
     margin-top: $marginTop + px;
     padding-bottom: 128px;

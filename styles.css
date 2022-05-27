@@ -30,7 +30,8 @@
   margin-right: 40px;
 }
 
-.left-header-content, .right-header-content {
+.left-header-content,
+.right-header-content {
   list-style: none;
 }
 
@@ -470,6 +471,10 @@ footer {
 }
 
 /************************PRODUCT INFO************************/
+.product-info {
+  background-color: #F8F3F4;
+}
+
 .product-info-content {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -512,7 +517,8 @@ footer {
   position: relative;
 }
 
-.product-banner-btn-left, .product-banner-btn-right {
+.product-banner-btn-left,
+.product-banner-btn-right {
   position: absolute;
   background-color: rgba(42, 42, 42, 0.15);
   width: 47px;
