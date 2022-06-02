@@ -1,0 +1,157 @@
+$margin : 4vh;
+$padding : 4vh;
+$color : #48CAE4;
+
+//Screen breakpoints
+$bp : (mobile : 480px,
+    tablet : 768px,
+    desktop : 1440px,
+);
+
+//Media queries we'll use mixins and loop the breakpoints we defined
+@mixin query($display) {
+
+    @each $key,
+    $value in $bp {
+
+        //  defining max-width
+        @if ($display==$key) {
+            @media screen and (max-width: $value) {
+                @content;
+            }
+        }
+    }
+}
+
+/**
+@returns % from width
+*/
+@function calcSidePaddins($pxWidth, $pxPadding) {
+    @return ($pxPadding / $pxWidth) * 100;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    font-family: sans-serif;
+    font-size: 1em;
+}
+
+/******************************************************/
+/************************TABLET************************/
+/******************************************************/
+@include query(mobile) {
+
+    $maxWidth: 768px;
+    $containerSidePaddings: 32px;
+
+    .container {
+        max-width: $maxWidth;
+        padding-left: $containerSidePaddings;
+        padding-right: $containerSidePaddings;
+    }
+
+    .responsive {
+        span {
+            font-size: 1em;
+        }
+    }
+
+    .left-banner-content {
+        margin-left: 0;
+
+        img {
+            width: ($maxWidth / 2) - $containerSidePaddings;
+        }
+    }
+
+    .right-banner-content {
+        font-size: 1em;
+    }
+
+    /************************CATEGORIES************************/
+    $contentSidePaddings: $containerSidePaddings / 2;
+
+    .categories {
+        padding-top: 20px;
+        padding-bottom: 155px;
+
+        &.container {
+            padding-left: $contentSidePaddings;
+            padding-right: $contentSidePaddings;
+        }
+    }
+
+    .categories-item {
+        width: 31%;
+    }
+
+    .categories-item-full {
+        width: 100%;
+        margin-top: 19px;
+    }
+
+    /************************FEATURED ITEMS************************/
+    .featured-items {
+
+        &.container {
+            padding-left: $contentSidePaddings;
+            padding-right: $contentSidePaddings;
+        }
+    }
+
+    .cards-item {
+        width: 48.5%;
+        margin-top: 16px;
+    }
+
+    .all-prod-btn {
+        margin: 33px auto 65px auto;
+
+        >a {
+            background-color: #FFFFFF;
+            color: #F26376;
+            border: 1px solid #FF6A6A;
+        }
+    }
+
+    /************************FOOTER************************/
+    .footer-top {
+        flex-direction: column;
+
+        :last-child {
+            padding-bottom: 64px;
+        }
+
+        div {
+            width: 60%;
+            padding-top: 48px;
+            padding-bottom: 0;
+        }
+    }
+
+    .footer-middle-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-middle-right {
+        margin-top: 48px;
+    }
+}
+
+/******************************************************/
+/************************MOBILE************************/
+/******************************************************/
+/*@media screen and (max-width: 375px) {
+
+    $maxWidth: 375px;
+    $containerSidePaddings: 32px;
+
+    .container {
+        max-width: $maxWidth;
+        padding-left: $containerSidePaddings;
+        padding-right: $containerSidePaddings;
+    }
+
+}*/

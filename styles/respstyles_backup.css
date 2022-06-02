@@ -1,0 +1,109 @@
+/**
+@returns % from width
+*/
+body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: sans-serif;
+  font-size: 1em;
+}
+
+/******************************************************/
+/************************TABLET************************/
+/******************************************************/
+@media screen and (max-width: 480px) {
+  .container {
+    max-width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  .responsive span {
+    font-size: 1em;
+  }
+  .left-banner-content {
+    margin-left: 0;
+  }
+  .left-banner-content img {
+    width: 352px;
+  }
+  .right-banner-content {
+    font-size: 1em;
+  }
+  /************************CATEGORIES************************/
+  .categories {
+    padding-top: 20px;
+    padding-bottom: 155px;
+  }
+  .categories.container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .categories-item {
+    width: 31%;
+  }
+  .categories-item-full {
+    width: 100%;
+    margin-top: 19px;
+  }
+  /************************FEATURED ITEMS************************/
+  .featured-items.container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .cards-item {
+    width: 48.5%;
+    margin-top: 16px;
+  }
+  .all-prod-btn {
+    margin: 33px auto 65px auto;
+  }
+  .all-prod-btn > a {
+    background-color: #FFFFFF;
+    color: #F26376;
+    border: 1px solid #FF6A6A;
+  }
+  /************************FOOTER************************/
+  .footer-top {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .footer-top :last-child {
+    padding-bottom: 64px;
+  }
+  .footer-top div {
+    width: 60%;
+    padding-top: 48px;
+    padding-bottom: 0;
+  }
+  .footer-middle-content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .footer-middle-right {
+    margin-top: 48px;
+  }
+}
+
+/******************************************************/
+/************************MOBILE************************/
+/******************************************************/
+/*@media screen and (max-width: 375px) {
+
+    $maxWidth: 375px;
+    $containerSidePaddings: 32px;
+
+    .container {
+        max-width: $maxWidth;
+        padding-left: $containerSidePaddings;
+        padding-right: $containerSidePaddings;
+    }
+
+}*/
+/*# sourceMappingURL=respstyles_backup.css.map */
