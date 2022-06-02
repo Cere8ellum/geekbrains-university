@@ -1,0 +1,274 @@
+$margin : 4vh;
+$padding : 4vh;
+$color : #48CAE4;
+
+//Screen breakpoints
+$bp : (mobile : 480,
+    tablet : 768,
+    mid_desktop: 1140,
+    desktop : 1440,
+);
+
+//Media queries we'll use mixins and loop the breakpoints we defined
+@mixin query($display) {
+
+    @each $key,
+    $value in $bp {
+
+        //  defining max-width
+        @if ($display==$key) {
+            $value: $value * 1px;
+
+            @media screen and (max-width: $value) {
+                @content;
+            }
+        }
+    }
+}
+
+/**
+@returns % from width
+*/
+@function calcPercent($px_child, $px_parent) {
+    $res: $px_child / $px_parent * 100%;
+    @return $res;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    font-size: 1em;
+}
+
+/******************************************************/
+/************************MIDDLE DESKTOP************************/
+/******************************************************/
+$main_width: map-get($bp, "mid_desktop");
+$main_paddings: 32;
+$mw: $main_width * 1px;
+
+/////////////////////////////From
+@media screen and (min-width: $mw) {
+    .container {
+        max-width: $mw;
+        margin: 0 auto;
+    }
+
+    .responsive {
+        span {
+            font-size: 1em;
+        }
+    }
+}
+
+/////////////////////////////To
+@include query(mid_desktop) {
+    $main_width: map-get($bp, "mid_desktop");
+
+    .container {
+        max-width: $main_width * 1px;
+        padding: 0 calcPercent($main_paddings, $main_width);
+    }
+}
+
+/******************************************************/
+/************************TABLET************************/
+/******************************************************/
+@include query(tablet) {
+    $main_width: map-get($bp, "tablet");
+
+    .banner-content {
+        justify-content: space-between;
+    }
+
+    .left-banner-content {
+        width: calcPercent(368, $main_width);
+        margin-left: 0;
+
+        img {
+            object-fit: contain;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .right-banner-content {
+        width: calcPercent(368, $main_width);
+
+        .slogan {
+            font-size: 1em;
+        }
+    }
+
+    /************************CATEGORIES************************/
+    .categories {
+        padding-top: 20px;
+        padding-bottom: 155px;
+
+        &.container {
+            padding-left: calcPercent(16, $main_width);
+            padding-right: calcPercent(16, $main_width);
+        }
+    }
+
+    .categories-item {
+        width: calcPercent(232, $main_width - $main_paddings);
+    }
+
+    .categories-item-full {
+        width: 100%;
+        margin-top: 19px;
+
+        .categories-text {
+            top: 20%;
+        }
+    }
+
+    /************************FEATURED ITEMS************************/
+    .featured-items {
+
+        &.container {
+            padding-left: calcPercent(16, $main_width);
+            padding-right: calcPercent(16, $main_width);
+        }
+    }
+
+    .cards-item {
+        width: calcPercent(360, $main_width - $main_paddings);
+        margin-top: 16px;
+    }
+
+    .all-prod-btn {
+        margin: 33px auto 65px auto;
+
+        >a {
+            background-color: #FFFFFF;
+            color: #F26376;
+            border: 1px solid #FF6A6A;
+        }
+    }
+
+    /************************FOOTER************************/
+    .footer-top {
+        flex-direction: column;
+
+        :last-child {
+            padding-bottom: 64px;
+        }
+
+        div {
+            width: calcPercent(360, $main_width);
+            padding-top: 48px;
+            padding-bottom: 0;
+        }
+    }
+
+    .footer-middle {
+        padding-top: 54px;
+        padding-bottom: 140px;
+    }
+
+    .footer-middle-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-middle-right {
+        margin-top: 48px;
+    }
+}
+
+/******************************************************/
+/************************MOBILE************************/
+/******************************************************/
+@include query(mobile) {
+    $main_width: map-get($bp, "mobile");
+    $main_paddings: 32;
+
+    .container {
+        padding: 0 calcPercent($main_paddings, $main_width);
+    }
+
+    .right-header-content {
+
+        li:nth-of-type(2),
+        li:nth-of-type(3) {
+            display: none;
+        }
+    }
+
+    .banner-content {
+        justify-content: center;
+        padding: 148px 0;
+    }
+
+    .left-banner-content {
+        display: none;
+    }
+
+    /************************CATEGORIES************************/
+    .categories {
+        padding: 64px 0;
+        flex-direction: column;
+    }
+
+    .categories-item {
+        width: 100%;
+        margin-bottom: 32px;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+
+    /************************FEATURED ITEMS************************/
+    .featured-items {
+
+        >span {
+            margin-top: 3px;
+        }
+    }
+
+    .cards-item {
+        width: 100%;
+    }
+
+    .all-prod-btn {
+        margin-top: 41px;
+        margin-bottom: 96px;
+    }
+
+    /************************FOOTER************************/
+    .footer-top {
+        :last-child {
+            padding-bottom: 81px;
+        }
+    }
+
+    .footer-middle {
+        padding-bottom: 110px;
+
+        form {
+            width: calcPercent(341, $main_width);
+
+            button {
+                width: 95px;
+            }
+        }
+
+        p {
+            width: 100%;
+        }
+    }
+
+    .footer-bottom {
+        flex-direction: column-reverse;
+        padding-top: 43px;
+        padding-bottom: 9px;
+    }
+
+}

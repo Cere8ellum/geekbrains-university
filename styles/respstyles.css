@@ -1,0 +1,199 @@
+/**
+@returns % from width
+*/
+html {
+  overflow-x: hidden;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  font-size: 1em;
+}
+
+/******************************************************/
+/************************MIDDLE DESKTOP************************/
+/******************************************************/
+@media screen and (min-width: 1140px) {
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+  .responsive span {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 1140px) {
+  .container {
+    max-width: 1140px;
+    padding: 0 2.80702%;
+  }
+}
+
+/******************************************************/
+/************************TABLET************************/
+/******************************************************/
+@media screen and (max-width: 768px) {
+  .banner-content {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .left-banner-content {
+    width: 47.91667%;
+    margin-left: 0;
+  }
+  .left-banner-content img {
+    -o-object-fit: contain;
+       object-fit: contain;
+    width: 100%;
+    height: 100%;
+  }
+  .right-banner-content {
+    width: 47.91667%;
+  }
+  .right-banner-content .slogan {
+    font-size: 1em;
+  }
+  /************************CATEGORIES************************/
+  .categories {
+    padding-top: 20px;
+    padding-bottom: 155px;
+  }
+  .categories.container {
+    padding-left: 2.08333%;
+    padding-right: 2.08333%;
+  }
+  .categories-item {
+    width: 31.52174%;
+  }
+  .categories-item-full {
+    width: 100%;
+    margin-top: 19px;
+  }
+  .categories-item-full .categories-text {
+    top: 20%;
+  }
+  /************************FEATURED ITEMS************************/
+  .featured-items.container {
+    padding-left: 2.08333%;
+    padding-right: 2.08333%;
+  }
+  .cards-item {
+    width: 48.91304%;
+    margin-top: 16px;
+  }
+  .all-prod-btn {
+    margin: 33px auto 65px auto;
+  }
+  .all-prod-btn > a {
+    background-color: #FFFFFF;
+    color: #F26376;
+    border: 1px solid #FF6A6A;
+  }
+  /************************FOOTER************************/
+  .footer-top {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .footer-top :last-child {
+    padding-bottom: 64px;
+  }
+  .footer-top div {
+    width: 46.875%;
+    padding-top: 48px;
+    padding-bottom: 0;
+  }
+  .footer-middle {
+    padding-top: 54px;
+    padding-bottom: 140px;
+  }
+  .footer-middle-content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .footer-middle-right {
+    margin-top: 48px;
+  }
+}
+
+/******************************************************/
+/************************MOBILE************************/
+/******************************************************/
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 0 6.66667%;
+  }
+  .right-header-content li:nth-of-type(2),
+  .right-header-content li:nth-of-type(3) {
+    display: none;
+  }
+  .banner-content {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding: 148px 0;
+  }
+  .left-banner-content {
+    display: none;
+  }
+  /************************CATEGORIES************************/
+  .categories {
+    padding: 64px 0;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .categories-item {
+    width: 100%;
+    margin-bottom: 32px;
+  }
+  .categories-item:last-of-type {
+    margin-bottom: 0;
+  }
+  /************************FEATURED ITEMS************************/
+  .featured-items > span {
+    margin-top: 3px;
+  }
+  .cards-item {
+    width: 100%;
+  }
+  .all-prod-btn {
+    margin-top: 41px;
+    margin-bottom: 96px;
+  }
+  /************************FOOTER************************/
+  .footer-top :last-child {
+    padding-bottom: 81px;
+  }
+  .footer-middle {
+    padding-bottom: 110px;
+  }
+  .footer-middle form {
+    width: 71.04167%;
+  }
+  .footer-middle form button {
+    width: 95px;
+  }
+  .footer-middle p {
+    width: 100%;
+  }
+  .footer-bottom {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    padding-top: 43px;
+    padding-bottom: 9px;
+  }
+}
+/*# sourceMappingURL=respstyles.css.map */
