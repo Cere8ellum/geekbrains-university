@@ -1,0 +1,580 @@
+$margin : 4vh;
+$padding : 4vh;
+$color : #48CAE4;
+$item_width: 360;
+
+//Screen breakpoints
+$bp : (mobile : 480,
+    mid_tablet: 640,
+    tablet : 768,
+    small_desktop: 1040,
+    mid_desktop: 1140,
+    desktop : 1440,
+);
+
+//Media queries we'll use mixins and loop the breakpoints we defined
+@mixin query($display) {
+
+    @each $key,
+    $value in $bp {
+
+        //  defining max-width
+        @if ($display==$key) {
+            $value: $value * 1px;
+
+            @media screen and (max-width: $value) {
+                @content;
+            }
+        }
+    }
+}
+
+/**
+@returns % from width
+*/
+@function calcPercent($px_child, $px_parent) {
+    $res: $px_child / $px_parent * 100%;
+    @return $res;
+}
+
+/*
+*Remove the unit of a length
+*@param {Number} $number - Number to remove unit from
+*@return {Number} - Unitless number
+*/
+@function strip-unit($number) {
+    @if type-of($number)=='number'and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
+
+    @return $number;
+}
+
+/**
+@returns fluid fon-size in $units 
+*/
+@function calcFluidFontSize($f-min, $f-max, $w-min, $w-max, $units: px) {
+    $f-min: strip-unit($f-min);
+    $f-max: strip-unit($f-max);
+    $w-min: strip-unit($w-min);
+    $w-max: strip-unit($w-max);
+
+    $k: ($f-max - $f-min)/($w-max - $w-min);
+    $b: $f-min - $k * $w-min;
+
+    $b: $b + $units;
+
+    @return calc(#{$k} * 100vw + #{$b});
+}
+
+//Mixin to work with @media
+/*
+*Теперь при ширине экрана меньше $w-min px шрифт всегда будет $f-min px, 
+*после $w-min он станет резиновым, 
+*а после $w-max px всегда будет $f-max px.
+*/
+@mixin fluidFontSize($f-min, $f-max, $w-min, $w-max, $fallback: false) {
+
+    font-size: $f-min;
+
+    @media (min-width: $w-min) {
+        @if ($fallback) {
+            font-size: $fallback;
+        }
+
+        font-size: calcFluidFontSize($f-min, $f-max, $w-min, $w-max, px);
+    }
+
+    @media (min-width: $w-max) {
+        font-size: $f-max;
+    }
+}
+
+/*html {
+    overflow-x: hidden;
+}*/
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    font-size: 1em;
+}
+
+.pagination {
+
+    a,
+    span {
+        font-size: 2vw;
+    }
+}
+
+/******************************************************/
+/********************SMALL DESKTOP*********************/
+/******************************************************/
+@include query(small_desktop) {
+    .order-content {
+        flex-direction: column;
+    }
+
+    .order-cards-buttons {
+        justify-content: space-around;
+    }
+
+    .order-info {
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 65px;
+        width: 100%;
+
+        form,
+        .order-summary {
+            width: 48%;
+        }
+
+        .order-summary {
+            margin-top: 40px;
+            margin-left: 16px;
+        }
+    }
+}
+
+/******************************************************/
+/********************MIDDLE DESKTOP********************/
+/******************************************************/
+$main_width: map-get($bp, "mid_desktop");
+$main_paddings: 32;
+//From tablet + 1px
+$from_width: (map-get($bp, "tablet")+1) * 1px;
+
+.container {
+    max-width: $main_width * 1px;
+    width: 100% - calcPercent($main_paddings * 2, $main_width);
+    margin: 0 auto;
+}
+
+.product-collection-content {
+
+    .product-collection-filters {
+        select {
+            @include fluidFontSize(10px, 14px, 480px, 1280px);
+        }
+    }
+}
+
+.reg-advantage {
+    @include fluidFontSize(16px, 24px, 768px, 1140px);
+
+    h2 {
+        @extend .reg-advantage;
+    }
+}
+
+.order-cards-data {
+
+    div {
+
+        h4 {
+            width: 100%;
+        }
+
+        a,
+        i {
+            @include fluidFontSize(16px, 24px, 768px, 1140px);
+        }
+    }
+
+    table {
+        @include fluidFontSize(14px, 22px, 768px, 1140px);
+
+        td {
+            padding-bottom: 6px;
+        }
+    }
+}
+
+$sm_desk_with: map-get($bp, "small_desktop") * 1px;
+
+@media screen and (min-width: $sm_desk_with) {
+    .order-cards {
+        margin-right: 32px;
+    }
+}
+
+@media screen and (min-width: $from_width) {
+
+    .slogan {
+        font-size: 3vw;
+    }
+
+    /************************FOOTER************************/
+    .footer-top-content {
+        div {
+            width: calcPercent($item_width, $main_width);
+        }
+    }
+
+
+    /************************CATEGORIES************************/
+    .categories-item {
+        width: calcPercent($item_width, $main_width);
+    }
+
+    .categories-item-full {
+        width: 100%;
+        margin-top: 19px;
+
+        .categories-text {
+            top: 20%;
+        }
+    }
+
+    /************************FEATURED ITEMS************************/
+    .cards-item {
+        width: calcPercent($item_width, $main_width - $main_paddings);
+        margin-top: 16px;
+    }
+
+}
+
+/******************************************************/
+/************************TABLET************************/
+/******************************************************/
+@include query(tablet) {
+    $main_width: map-get($bp, "tablet");
+
+    .left-banner-content {
+        width: calcPercent(368, $main_width);
+        margin-left: 0;
+    }
+
+    .right-banner-content {
+        width: calcPercent(368, $main_width);
+
+        .slogan {
+            font-size: 2vh;
+        }
+    }
+
+    /************************CATEGORIES************************/
+    .categories {
+        padding-top: 20px;
+        padding-bottom: 155px;
+
+        &.container {
+            padding-left: calcPercent(16, $main_width);
+            padding-right: calcPercent(16, $main_width);
+        }
+    }
+
+    .categories-item {
+        width: calcPercent(232, $main_width - $main_paddings);
+    }
+
+    .categories-item-full {
+        width: 100%;
+    }
+
+    /************************FEATURED ITEMS************************/
+    .featured-items {
+
+        &.container {
+            padding-left: calcPercent(16, $main_width);
+            padding-right: calcPercent(16, $main_width);
+        }
+    }
+
+    .cards-item {
+        width: calcPercent($item_width, $main_width - $main_paddings);
+        margin-top: 16px;
+    }
+
+    .all-prod-btn {
+        margin: 33px auto 65px auto;
+
+        >a {
+            background-color: #FFFFFF;
+            color: #F26376;
+            border: 1px solid #FF6A6A;
+        }
+    }
+
+    /************************CATALOG************************/
+    .catalog-filters-content {
+        justify-content: space-between;
+
+        .catalog-filters-sort,
+        .catalog-filters-filters {
+            flex-grow: unset;
+        }
+    }
+
+    /************************PRODUCT************************/
+    .product-banner {
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .product-collection {
+            bottom: initial;
+            border: none;
+        }
+    }
+
+    /************************REGISTRATION************************/
+    .reg-form {
+        margin-right: 22px;
+    }
+
+    /************************CART************************/
+
+
+    /************************FOOTER************************/
+    .footer-top-content {
+        flex-direction: column;
+        padding-top: 48px;
+        padding-bottom: 64px;
+
+        :first-child {
+            margin-top: 0;
+        }
+
+        div {
+            width: calcPercent($item_width, $main_width);
+            margin-top: 64px;
+        }
+    }
+
+    .footer-middle {
+        padding-top: 54px;
+        padding-bottom: 140px;
+    }
+
+    .footer-middle-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-middle-right {
+        margin-top: 48px;
+    }
+}
+
+/******************************************************/
+/************************MIDDLE TABLET*****************/
+/******************************************************/
+@include query(mid_tablet) {
+    .reg-content {
+        flex-direction: column;
+
+        .reg-form {
+            margin-right: 0;
+            padding-bottom: 40px;
+
+            button {
+                margin-top: 39px;
+            }
+        }
+    }
+}
+
+/******************************************************/
+/************************MOBILE************************/
+/******************************************************/
+@include query(mobile) {
+    $main_width: map-get($bp, "mobile");
+    $main_paddings: 32;
+
+    .left-header-content> :nth-child(even),
+    .right-header-content> :nth-child(even) {
+        margin-left: 40px;
+        margin-right: 0;
+    }
+
+    .right-header-content {
+
+        li:nth-of-type(2),
+        li:nth-of-type(3) {
+            display: none;
+        }
+    }
+
+    .responsive {
+        span {
+            font-size: 3vh;
+        }
+    }
+
+    .banner-content {
+        justify-content: center;
+        padding: 148px 0;
+    }
+
+    .left-banner-content {
+        display: none;
+    }
+
+    /************************CATEGORIES************************/
+    .categories {
+        padding: 64px 0;
+        flex-direction: column;
+    }
+
+    .categories-item {
+        width: 100%;
+        margin-bottom: 32px;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+
+    /************************FEATURED ITEMS************************/
+    .featured-items {
+
+        >span {
+            margin-top: 3px;
+        }
+    }
+
+    .cards-item {
+        width: 100%;
+    }
+
+    .all-prod-btn {
+        margin-top: 41px;
+        margin-bottom: 96px;
+    }
+
+    /************************FOOTER************************/
+    .footer-top-content {
+        padding-bottom: 81px;
+    }
+
+    .footer-middle {
+        padding-bottom: 110px;
+
+        form {
+            width: 100%;
+
+            button {
+                width: 95px;
+            }
+        }
+
+        p {
+            width: 100%;
+        }
+    }
+
+    .footer-bottom {
+        padding-top: 43px;
+        padding-bottom: 24px;
+
+        .footer-bottom-content {
+            flex-direction: column-reverse;
+
+            p:first-child {
+                margin-top: 40px;
+            }
+        }
+    }
+
+    /************************BREADCRUMBS************************/
+    .breadcrumbs-content {
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    /************************CATALOG************************/
+    .catalog-filters-sort {
+        span {
+            display: none;
+        }
+
+        i {
+            font-size: 10vw;
+            margin-left: 0;
+        }
+    }
+
+    .catalog-filters-filters {
+        font-size: 3vw;
+        line-height: 14px;
+
+        .catalog-filters-by-props {
+
+            &:nth-child(even) {
+                margin-left: 24px;
+                margin-right: 24px;
+            }
+        }
+    }
+
+    /************************REGISTRATION************************/
+    .reg-form {
+        width: 100%;
+
+        p {
+            width: 100%;
+        }
+    }
+
+    /************************CART************************/
+    .order-cards-item {
+        height: 188px;
+        width: 100%;
+    }
+
+    .order-cards-data {
+        padding-top: 14px;
+        padding-left: 17px;
+
+        div {
+            padding-right: 12px;
+
+            a,
+            i {
+                line-height: 19px;
+            }
+
+        }
+
+        table {
+            margin-top: 25px;
+            line-height: 17px;
+
+            td {
+                padding-bottom: 4px;
+            }
+        }
+    }
+
+    .order-cards-buttons {
+        button {
+            width: 175px;
+
+            &:last-child {
+                margin-left: 10px;
+            }
+        }
+    }
+
+    .order-info {
+        flex-direction: column;
+
+        form {
+            width: 100%;
+        }
+
+        .order-summary {
+            $paddings: calcPercent(44, $main_width);
+            width: 100% - ($paddings * 2);
+            padding-left: $paddings - 1;
+            padding-right: $paddings - 1;
+            margin-left: 0;
+        }
+    }
+}
