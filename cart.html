@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles/animations.css">
+    <link rel="stylesheet" type="text/css" href="styles/fonts.css">
+    <link rel="stylesheet" type="text/css" href="styles/fa.css">
+    <link rel="stylesheet" type="text/css" href="styles/styles.css" id="styles_d">
+    <link rel="stylesheet" type="text/css" href="styles/respstyles.css" id="styles_m">
+    <link type="image/x-icon" href="img/logo.svg" rel="shortcut icon">
+    <link type="Image/x-icon" href="img/logo.svg" rel="icon">
+    <title>Cart</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="header-content">
+                <ul class="left-header-content">
+                    <li class="menu-item">
+                        <a href="index.html">
+                            <img src="img/logo.svg" alt="Logo">
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#">
+                            <i class="fa-light fa-magnifying-glass"></i>
+                        </a>
+                    </li>
+                </ul>
+                <div class="responsive">
+                    <div class="responsive-btn hidden">
+                        <i class="fa-solid fa-tablet-screen-button"></i>
+                        <span class="hidden">show responsive</span>
+                    </div>
+                    <div class="responsive-btn flexible">
+                        <i class="fa-solid fa-desktop"></i>
+                        <span class="hidden">show desktop</span>
+                    </div>
+                </div>
+                <ul class="right-header-content">
+                    <li class="menu-item drop-down-menu-btn">
+                        <a href="#">
+                            <i class="fa-light fa-bars"></i>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="registration.html">
+                            <i class="fa-light fa-user"></i>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="cart.html" class="cart-wrapper">
+                            <i class="fa-light fa-cart-shopping"></i>
+                            <span>0</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <nav class="drop-down-menu">
+                <img class="drop-down-menu-close" src="img/menu-close.svg" alt="">
+                <h3>MENU</h3>
+                <h4>MAN</h4>
+                <ul>
+                    <li><a href="catalog.html">Accessories</a></li>
+                    <li><a href="catalog.html">Bags</a></li>
+                    <li><a href="catalog.html">Denim</a></li>
+                    <li><a href="catalog.html">T-Shirts</a></li>
+                </ul>
+                <h4>WOMAN</h4>
+                <ul>
+                    <li><a href="catalog.html">Accessories</a></li>
+                    <li><a href="catalog.html">Jackets & Coats</a></li>
+                    <li><a href="catalog.html">Polos</a></li>
+                    <li><a href="catalog.html">T-Shirts</a></li>
+                    <li><a href="catalog.html">Shirts</a></li>
+                </ul>
+                <h4>KIDS</h4>
+                <ul>
+                    <li><a href="catalog.html">Accessories</a></li>
+                    <li><a href="catalog.html">Jackets & Coats</a></li>
+                    <li><a href="catalog.html">Polos</a></li>
+                    <li><a href="catalog.html">T-Shirts</a></li>
+                    <li><a href="catalog.html">Shirts</a></li>
+                    <li><a href="catalog.html">Bags</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="breadcrumbs">
+        <div class="container">
+            <div class="breadcrumbs-content">
+                <h2>SHOPPING CART</h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="order">
+        <div class="container">
+            <div class="order-content">
+                <div class="order-cards">
+                    <div class="order-cards-item">
+                        <div class="order-cards-img">
+                            <img src="img/featured-items/3.png" alt="3 image">
+                        </div>
+                        <div class="order-cards-data">
+                            <div>
+                                <h4><a href="product.html">MANGO PEOPLE <br>T-SHIRT</a></h4>
+                                <i class="fa-solid fa-xmark"></i>
+                            </div>
+                            <table>
+                                <tr>
+                                    <td>Price: <span>$300</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Color: Red</td>
+                                </tr>
+                                <tr>
+                                    <td>Size: Xl</td>
+                                </tr>
+                                <tr>
+                                    <td>Quantity:<input type="number" step="1" value="2" min="0" max="10"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="order-cards-item">
+                        <div class="order-cards-img">
+                            <img src="img/featured-items/7.jpg" alt="7 image">
+                        </div>
+                        <div class="order-cards-data">
+                            <div>
+                                <h4><a href="product.html">MANGO PEOPLE <br>T-SHIRT</a></h4>
+                                <i class="fa-solid fa-xmark"></i>
+                            </div>
+                            <table>
+                                <tr>
+                                    <td>Price: <span>$300</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Color: Red</td>
+                                </tr>
+                                <tr>
+                                    <td>Size: Xl</td>
+                                </tr>
+                                <tr>
+                                    <td>Quantity:<input type="number" step="1" value="2" min="0" max="10"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="order-cards-buttons">
+                        <button>CLEAR SHOPPING CART</button>
+                        <button>CONTINUE SHOPPING</button>
+                    </div>
+                </div>
+                <div class="order-info">
+                    <form action="#">
+                        <h4>SHIPPING ADRESS</h4>
+                        <input type="text" placeholder="Bangladesh">
+                        <input type="text" placeholder="State">
+                        <input type="text" placeholder="Postcode / Zip" pattern="[0-9]{6}" title="шестизначный индекс">
+                        <button>GET A QUOTE</button>
+                    </form>
+                    <div class="order-summary">
+                        <h3>SUB TOTAL<span>$900</span></h3>
+                        <h4>GRAND TOTAL<span>$900</span></h4>
+                        <hr>
+                        <button>PROCEED TO CHECKOUT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <section class="footer-top">
+            <div class="container">
+                <div class="footer-top-content">
+                    <div>
+                        <img src="img/footer/truck.svg" alt="Truck">
+                        <h4>Free Delivery</h4>
+                        <p>
+                            Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive
+                            models.
+                        </p>
+                    </div>
+                    <div>
+                        <img src="img/footer/percent.svg" alt="Percent">
+                        <h4>Sales & discounts</h4>
+                        <p>
+                            Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive
+                            models.
+                        </p>
+                    </div>
+                    <div>
+                        <img src="img/footer/corona.svg" alt="Corona">
+                        <h4>Quality assurance</h4>
+                        <p>
+                            Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive
+                            models.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="footer-middle">
+            <div class="container">
+                <div class="footer-middle-content">
+                    <div class="footer-middle-left">
+                        <img src="img/footer/woman.png" alt="">
+                        <p>
+                            “Vestibulum quis porttitor dui! Quisque viverra nunc mi, a pulvinar purus condimentum“
+                        </p>
+                    </div>
+                    <div class="footer-middle-right">
+                        <h4>SUBSCRIBE</h4>
+                        <p>FOR OUR NEWLETTER AND PROMOTION</p>
+                        <form>
+                            <input type="email" maxlength="100" placeholder="Enter Your Email">
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p>
+                        © 2021 Brand All Rights Reserved.
+                    </p>
+                    <p>
+                        <a href="#">
+                            <button>
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </button>
+                        </a>
+                        <a href="#">
+                            <button>
+                                <i class="fa-brands fa-instagram"></i>
+                            </button>
+                        </a>
+                        <a href="#">
+                            <button>
+                                <i class="fa-brands fa-pinterest-p"></i>
+                            </button>
+                        </a>
+                        <a href="#">
+                            <button>
+                                <i class="fa-brands fa-twitter"></i>
+                            </button>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>
